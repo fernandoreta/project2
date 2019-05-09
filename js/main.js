@@ -1,3 +1,6 @@
+//Project by Fernando Wertt Reta
+
+//Declaring variables
 const pageList = document.querySelector('ul');
 const eachStudent = pageList.children;
 const buttonDiv = document.querySelector('.pagination');
@@ -6,6 +9,7 @@ const studentsPerPage = 10;
 const searchDiv = document.querySelector('.student-search');
 const noResultDiv = document.querySelector('.no-result');
 
+//Numbers of pages and the cycle for each one
 function numberOfPages() {
     let pages = Math.ceil(eachStudent.length / studentsPerPage);
     return pages;
@@ -32,6 +36,7 @@ function showFirstTen() {
     }
 }
 
+//Get search with the DOM
 let searchInput = document.createElement('input');
 let searchButton = document.createElement('button');
 function showSearch() {
@@ -41,6 +46,7 @@ function showSearch() {
     searchDiv.appendChild(searchButton);
 }
 
+//Results in an array and push with the cycle (i)
 const searchResults = [];
 searchButton.addEventListener('click', () => {
     let filter = searchInput.value.toLowerCase();
@@ -62,7 +68,7 @@ searchButton.addEventListener('click', () => {
     }
 });
 
-
+//Event of the button
 buttonDiv.addEventListener('click', (event) => {
     noResultDiv.innerHTML = ''; 
     let buttonNumber = parseInt(event.target.textContent);
@@ -77,6 +83,6 @@ buttonDiv.addEventListener('click', (event) => {
     }    
 });
 
-
+//Execute the functions
 showFirstTen();
 showSearch();
